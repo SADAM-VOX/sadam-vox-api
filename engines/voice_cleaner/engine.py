@@ -1,16 +1,31 @@
-class VoiceCleanerEngine:
+from engines.voice_cleaner.engine import VoiceCleanerEngine
+
+
+class EngineManager:
     """
-    المحرك الأساسي لتنظيف الصوت.
-    سيتم ربطه لاحقًا بمحركات الذكاء الاصطناعي
-    مثل DeepFilterNet وغيرها.
+    مسؤول عن تسجيل محركات الذكاء الاصطناعي
+    وإدارتها وتشغيلها.
     """
 
-    NAME = "voice_cleaner"
+    def __init__(self):
+        self.engines = {}
 
-    def process(self, audio_file):
-        return {
-            "status": "success",
-            "engine": self.NAME,
-            "message": "Voice Cleaner Engine is ready.",
-            "input": audio_file
-        }
+    def register(self, name, engine):
+        self.engines[name] = engine
+
+    def get(self, name):
+        return self.engines.get(name)
+
+    def exists(self, name):
+        return name in self.engines
+
+    def list_engines(self):
+        return list(self.engines.keys())
+
+
+engine_manager = EngineManager()
+
+engine_manager.register(
+    "voice_cleaner",
+    VoiceCleanerEngine()
+)
