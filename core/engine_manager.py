@@ -1,7 +1,6 @@
 class EngineManager:
     """
-    مسؤول عن تسجيل محركات الذكاء الاصطناعي
-    وإدارتها وتشغيلها.
+    المحرك الأساسي لإدارة محركات SADAM VOX
     """
 
     def __init__(self):
@@ -18,3 +17,6 @@ class EngineManager:
 
     def list_engines(self):
         return list(self.engines.keys())
+
+
+engine_manager = EngineManager()
