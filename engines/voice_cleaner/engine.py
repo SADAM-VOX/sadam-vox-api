@@ -1,10 +1,6 @@
-from engines.voice_cleaner.engine import VoiceCleanerEngine
-
-
 class EngineManager:
     """
-    مسؤول عن تسجيل محركات الذكاء الاصطناعي
-    وإدارتها وتشغيلها.
+    المحرك الأساسي لإدارة محركات SADAM VOX
     """
 
     def __init__(self):
@@ -24,8 +20,3 @@ class EngineManager:
 
 
 engine_manager = EngineManager()
-
-engine_manager.register(
-    "voice_cleaner",
-    VoiceCleanerEngine()
-)
